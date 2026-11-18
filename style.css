@@ -1,0 +1,20 @@
+button {
+    width: 5rem;
+    height: 5rem;
+    font-size: larger;
+}
+#display{
+    font-size: 2em;
+    text-align: center;
+    padding: 2em;
+}
+#body-wrap{
+    margin: 5px;
+}
+.button-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+}
