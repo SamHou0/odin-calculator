@@ -4,8 +4,14 @@ const numInput = document.getElementById("num-input");
 const display = document.getElementById("display");
 const equalButton = document.getElementById("equal-button");
 const clearButton = document.getElementById("clear-button");
-function updateDisplay() {
-    display.textContent = `${Math.round(a * 10000) / 10000} ${operator} ${b}`;
+const dotButton = document.getElementById("dot-button");
+function updateDisplay(isRoundEnabled = false) {
+    display.textContent = `${isRoundEnabled ? Math.round(a * 10000) / 10000 : a} ${operator} ${b}`;
+    if (operator === "") {
+        dotButton.disabled = a.includes(".");
+    } else {
+        dotButton.disabled = b.includes(".")
+    }
 }
 function reset(isDisplayUpdateRequired = true) {
     a = "";
@@ -31,9 +37,10 @@ function operate() {
     } else {
         return;
     }
+    a = "" + a;
     b = "";
     operator = "";
-    updateDisplay();
+    updateDisplay(true);
 }
 function add(a, b) {
     return a + b;
